@@ -13,10 +13,19 @@ const PdfPath = "E:\\Downloads\\92151620-Watership-Down-The-classic-novel-by-Ric
 const loader = new PDFLoader(PdfPath);
 
 // Create an endpoint to load and display the PDF content
-app.get('/load-pdf', async (req, res) => {
+app.get('/load-pdf-content', async (req, res) => {
     try {
         const docs = await loader.load();
         res.send(docs[0]); // Send the first document to the browser
+    } catch (err) {
+        res.status(500).send({ error: "Error loading PDF", details: err.message });
+    }
+});
+// Create an endpoint to load and display the PDF metadata
+app.get('/load-pdf-metadata', async (req, res) => {
+    try {
+        const docs = await loader.load();
+        res.send(docs[0].metadata); 
     } catch (err) {
         res.status(500).send({ error: "Error loading PDF", details: err.message });
     }
