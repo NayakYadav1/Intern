@@ -11,11 +11,9 @@ function initializeLLM() {
 }
 
 async function createVectorStore(splits) {
-  const vectorstore = await MemoryVectorStore.fromDocuments(
-    splits,
-    new GoogleGenerativeAIEmbeddings()
-  );
-  return vectorstore;
+  return new GoogleGenerativeAIEmbeddings({
+    apiKey: process.env.GOOGLE_API_KEY,
+  });
 }
 
 module.exports = { initializeLLM, createVectorStore };
