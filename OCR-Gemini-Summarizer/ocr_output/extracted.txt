@@ -1,0 +1,8 @@
+from sklearn.model selection import train_test_split
+[144]: x = df[['ApplicantIncome’, 'CoapplicantIncome’, 'LoanAmount’, 'Property Area']] + N~ EI |
+y = df['Credit_History']
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, random_state = 42)
+print("Training set shape: ", x_train.shape, y_train.shape)
+print("Testing set shape: ", x_test.shape, y_test.shape)
+Training set shape: (293, 4) (293,)
+Testing set shape: (74, 4) (74,)

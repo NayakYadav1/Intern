@@ -2,6 +2,7 @@
   "name": "ocr-gemini-summarizer",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +13,7 @@
   "dependencies": {
     "@google/generative-ai": "^0.24.0",
     "dotenv": "^16.5.0",
+    "nodemon": "^3.1.10",
     "tesseract.js": "^6.0.1"
   }
 }
