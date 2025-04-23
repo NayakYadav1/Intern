@@ -1,17 +1,23 @@
-const express = require('express');
+import express from "express";
+import "dotenv/config";
+import { generateCaptionForLocalImage } from "./src/imageUpload.js";
 
 const app = express();
-const PORT = 3000;
 
-// Middleware to parse JSON
-app.use(express.json());
+const port = process.env.PORT;
 
-// Basic route
-app.get('/', (req, res) => {
-    res.send('Welcome to the Image Caption Generator Server!');
-});
 
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+const generateCaptionOnStartup = async () => {
+  try {
+    const caption = await generateCaptionForLocalImage();
+    console.log("Generated Caption on Startup:", caption);
+  } catch (error) {
+    console.error("Error generating caption on startup:", error);
+  }
+};
+
+generateCaptionOnStartup();
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });

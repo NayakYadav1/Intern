@@ -2,6 +2,7 @@
   "name": "image-caption-generator",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +11,14 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "@langchain/community": "^0.3.41",
+    "@langchain/google-genai": "^0.2.4",
+    "chroma": "^0.0.1",
     "dotenv": "^16.5.0",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "langchain": "^0.3.23",
+    "nodemon": "^3.1.9"
   }
 }
